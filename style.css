@@ -1,217 +1,188 @@
-/* Import font bergaya tulisan tangan dari Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Patrick+Hand&display=swap');
-
-/* Style untuk seluruh latar belakang halaman */
+/* STYLING DASAR UMUM */
 body {
-    background-color: #f7e2d6; /* Warna pastel krem lembut */
-    font-family: 'Patrick Hand', cursive; /* Font gaya tulisan tangan */
-    color: #4a3b32; /* Warna teks cokelat tua, lebih lembut dari hitam */
+    font-family: 'Patrick Hand', cursive, Arial, sans-serif;
+    background-color: #f7f3ed;
+    color: #3d2b1f;
+    max-width: 480px;
+    margin: 0 auto;
     padding: 20px;
-    max-width: 450px; /* Membuat ukuran kartu terasa seperti layar HP */
-    margin: 0 auto; /* Posisi di tengah layar */
 }
 
-/* Kotak Pembungkus Utama (Efek Scrapbook) */
-main {
-    background-color: #fff9f3;
-    border: 3px solid #3d2b1f; /* Garis tepi tebal cokelat */
-    border-radius: 18px; /* Sudut melengkung */
-    padding: 20px;
-    box-shadow: 4px 4px 0px #3d2b1f; /* Efek bayangan tegas ala ilustrasi */
-}
-
-/* Judul Header */
-h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 32px;
-    margin-bottom: 0;
-}
-
-/* Styling Tag/Tombol Fasilitas */
-label {
-    display: inline-block;
-    background-color: #f2c9a1; /* Warna oranye pastel */
-    border: 2px solid #3d2b1f;
-    border-radius: 15px;
-    padding: 5px 12px;
-    margin: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Styling Kotak Input Ulasan */
-textarea {
-    width: 90%;
-    height: 125px; /* Disesuaikan agar muat sekitar 5 baris */
-    border: 2px solid #3d2b1f;
-    border-radius: 10px;
-    
-    /* PADDING PENTING: Menyesuaikan posisi awal ketikan agar pas di atas garis pertama */
-    padding: 2px 10px 0px 10px; 
-    
-    font-family: 'Patrick Hand', cursive;
-    font-size: 18px; /* Ukuran font disesuaikan */
-    color: #4a3b32;
-    
-    /* EFEK GARIS BUKU CATATAN (Tinggi garis 25px) */
-    background: repeating-linear-gradient(
-        #fff9f3,
-        #fff9f3 24px,
-        #d1b8a5 25px
-    );
-    
-    /* LINE-HEIGHT PENTING: Harus sama persis dengan tinggi repeating-linear-gradient (25px) */
-    line-height: 25px; 
-    
-    outline: none;
-    resize: vertical; /* Memungkinkan kotak ditarik ke bawah jika kurang panjang */
-    transition: box-shadow 0.3s ease;
-}
-
-textarea:focus {
-    box-shadow: 0 0 8px rgba(224, 122, 95, 0.5);
-    border-color: #e07a5f;
-}
-
-/* Navigasi Bawah (Bottom Bar) */
-footer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    background-color: #fff9f3;
-    border: 3px solid #3d2b1f;
-    border-radius: 20px;
-    padding: 8px;
-}
-
-footer button {
-    background: none;
-    border: none;
-    font-family: 'Patrick Hand', cursive;
-    font-size: 14px;
+/* ================= STYLING BERANDA REKOMENDASI WARUNG ================= */
+.beranda-header h2 {
+    font-size: 22px;
     font-weight: bold;
-    cursor: pointer;
+    color: #3d2b1f;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* BINGKAI FOTO POLAROID */
-.foto-container {
+.daftar-warung {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* KARTU WARUNG (CARD) */
+.kartu-warung {
+    display: flex;
     background-color: #ffffff;
-    padding: 10px 10px 25px 10px;
-    border: 2px solid #3d2b1f;
-    border-radius: 8px;
-    box-shadow: 3px 3px 0px #3d2b1f;
-    margin: 15px 0;
-    transform: rotate(-2deg);
-    transition: transform 0.3s ease; /* Transisi untuk efek miring/membesar */
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.foto-warung {
-    width: 100%; /* Lebar gambar pas dengan bingkai */
-    height: auto; /* Tinggi gambar menyesuaikan otomatis agar foto UTUH */
-    max-height: 250px; /* Batas tinggi maksimal agar tidak terlalu panjang */
-    object-fit: contain; /* Menampilkan seluruh gambar tanpa terpotong */
-    display: block;
+.kartu-warung:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* FOTO WARUNG KECIL DI KIRI */
+.foto-thumb {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* INFORMASI TEKS DI KANAN */
+.info-warung {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.nama-warung {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #3d2b1f;
+}
+
+.deskripsi-warung {
+    font-size: 13px;
+    color: #666666;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.lokasi-warung {
+    font-size: 12px;
+    color: #888888;
+    margin: 2px 0 0 0;
+}
+
+/* RATING BINTANG BIRU */
+.rating-biru {
+    color: #00a8e8;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* ================= STYLING HALAMAN DETAIL JURNAL ================= */
+
+/* TOMBOL KEMBALI */
+#btn-kembali {
+    background-color: #3d2b1f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease;
+}
+
+#btn-kembali:hover {
+    background-color: #e07a5f;
+}
+
+/* BINGKAI POLAROID */
+.polaroid-frame {
+    background-color: #ffffff;
+    padding: 12px 12px 20px 12px;
     border-radius: 4px;
-    border: 1px solid #3d2b1f;
-    background-color: #f7e2d6; /* Warna latar jika rasio foto berbeda */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 300px;
+    margin: 15px auto;
+    text-align: center;
+    transform: rotate(-1.5deg);
     transition: transform 0.3s ease;
 }
 
-/* EFEK SAAT KURSOR DIARAHKAN (HOVER) */
-.foto-container:hover {
-    transform: rotate(0deg) scale(1.03); /* Bingkai jadi lurus & membesar sedikit */
-    box-shadow: 5px 5px 0px #3d2b1f;
+.polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
-
-/* 2. EFEK TAG FASILITAS INTERAKTIF */
-/* Warna default jika BELUM dicentang */
-label {
-    background-color: #fceee3; 
-    color: #a08a7d;
-    transition: all 0.2s ease; /* Transisi halus saat berubah warna */
+.foto-polaroid {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 2px;
 }
 
-/* Warna jika SUDAH dicentang (checked) */
-label:has(input:checked) {
-    background-color: #f2c9a1; /* Oranye pastel */
-    color: #4a3b32;
+.caption-polaroid {
+    font-size: 16px;
+    color: #3d2b1f;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* INFORMASI HARGA & JAM BUKA (Dua Kolom) */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    flex: 1;
+    background-color: #ffffff;
+    border: 2px dashed #d1b8a5;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.info-label {
+    display: block;
+    font-size: 12px;
+    color: #8a7365;
+    text-transform: uppercase;
+}
+
+.info-value {
+    display: block;
+    font-size: 15px;
     font-weight: bold;
+    color: #3d2b1f;
+    margin-top: 4px;
 }
 
-/* Efek saat kursor menyorot tag (Hover) */
-label:hover {
-    transform: translateY(-2deg); /* NAIK Sedikit saat disorot */
-    box-shadow: 2px 2px 0px #3d2b1f;
-}
-
-/* 3. EFEK TOMBOL DI FOOTER SAAT DIKLIK */
-footer button {
-    transition: transform 0.1s;
-}
-
-footer button:hover {
-    color: #e07a5f;
-    transform: scale(1.1); /* Membesar sedikit */
-}
-
-footer button:active {
-    transform: scale(0.95); /* Memengecil sedikit saat diklik */
-}
-
-/* 1. STYLING RATING BINTANG */
-.rating-container {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Warna bintang default (mati / belum dipilih) */
+/* BINTANG INTERAKTIF DETAIL */
 .bintang {
     font-size: 24px;
-    color: #d1b8a5; /* Warna krem redup */
+    color: #d1b8a5 !important;
     cursor: pointer;
     display: inline-block;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Warna bintang AKTIF (yang terpilih) */
 .bintang.aktif {
-    color: #e07a5f; /* Warna oranye-kuning terang */
+    color: #e07a5f !important;
 }
 
-.bintang:hover {
-    transform: scale(1.2);
-}
-
-/* 2. STYLING INFORMASI KARTU (DUA KOLOM RAPI) */
-.info-container {
-    background-color: #fceee3;
-    border: 2px solid #3d2b1f;
-    border-radius: 12px;
-    padding: 10px 15px;
-    margin-top: 10px;
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between; /* Kiri-kanan sejajar */
-    padding: 6px 0;
-    border-bottom: 1px dashed #d1b8a5; /* Garis putus-putus pembatas */
-}
-
-.info-item:last-child {
-    border-bottom: none; /* Hilangkan garis di baris paling bawah */
-}
-
-.info-label {
-    font-weight: bold;
-    color: #705849;
-}
-
-.info-value {
-    color: #3d2b1f;
-}
-/* Container Tag Fasilitas */
+/* TAG FASILITAS */
 .tag-fasilitas {
     display: inline-flex;
     align-items: center;
@@ -226,7 +197,6 @@ footer button:active {
     transition: all 0.2s ease;
 }
 
-/* Badge Kecil Rating di Dalam Tag */
 .badge-rate {
     background-color: #e07a5f;
     color: #ffffff;
@@ -234,17 +204,36 @@ footer button:active {
     padding: 1px 6px;
     border-radius: 10px;
     font-weight: bold;
-    display: none; /* Default sembunyi jika tidak dicentang */
+    display: none;
 }
 
-/* Saat Checkbox Dicentang (Active State) */
 .tag-fasilitas:has(input:checked) {
     background-color: #f2c9a1;
     color: #4a3b32;
     font-weight: bold;
 }
 
-/* Tampilkan Badge Rating Hanya Jika Dicentang */
 .tag-fasilitas:has(input:checked) .badge-rate {
     display: inline-block;
+}
+
+/* ULASAN KERTAS BERGARIS */
+#input-ulasan {
+    width: 90%;
+    height: 125px;
+    background-color: #fdfbf7;
+    background-image: repeating-linear-gradient(
+        transparent,
+        transparent 24px,
+        #e5d5c5 25px
+    );
+    line-height: 25px;
+    padding: 5px 12px;
+    border: 2px solid #3d2b1f;
+    border-radius: 8px;
+    font-family: 'Patrick Hand', cursive, sans-serif;
+    font-size: 18px;
+    color: #3d2b1f;
+    resize: none;
+    outline: none;
 }

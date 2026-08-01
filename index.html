@@ -2,110 +2,126 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-
-    <title>Jurnal Warung Ghoil Bawazier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Warung Kuliner</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Patrick Hand -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Judul Utama-->
-     <header>
-        <h1>Boulaith.co</h1>
-        <p>@az.nazzura</p>
-     </header>
+    <!-- ================= HALAMAN 1: BERANDA ================= -->
+    <section id="halaman-beranda">
+        <div class="beranda-header">
+            <h2>🍜 Rekomendasi Warung</h2>
+        </div>
 
-     <hr>
+        <div class="daftar-warung">
+            <!-- Kartu Warung 1: Biduni Ism -->
+            <div class="kartu-warung" onclick="bukaDetail('Warung Biduni Ism')">
+                <img src="IMG_7343.JPG" alt="Warung Biduni Ism" class="foto-thumb">
+                <div class="info-warung">
+                    <h3 class="nama-warung">Warung Biduni Ism</h3>
+                    <p class="deskripsi-warung">Warung makan khas Yaman dengan menu terfokus di roti.</p>
+                    <p class="lokasi-warung"><strong>Lokasi:</strong> Pusat kota Ghoil</p>
+                    <div class="rating-biru">★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-     <!-- Konten Utama Review Warung-->
-      <main>
-        <h2>Warung Biduni Ism</h2>
+    <!-- ================= HALAMAN 2: DETAIL REVIEW (JURNAL) ================= -->
+    <section id="halaman-detail" style="display: none;">
+        <!-- Tombol Kembali -->
+        <button id="btn-kembali" onclick="kembaliKeBeranda()">
+            ← Kembali ke Beranda
+        </button>
 
-        <!-- Tambahan Foto Kafe -->
-         <div class="foto-container">
-            <img src="IMG_7343.jpg" alt="Foto Warung" class="foto-warung">
-         </div>
-        <p><strong>Kota:</strong> Ghoil Bawazier</p>
+        <!-- Judul Dinamis -->
+        <h2 id="detail-nama-warung">Warung Biduni Ism</h2>
+
+        <!-- FOTO POLAROID -->
+        <div class="polaroid-frame">
+            <img src="IMG_7343.JPG" alt="Warung Biduni Ism" class="foto-polaroid">
+            <p class="caption-polaroid">Spot Nyaman di Warung Biduni Ism 📸</p>
+        </div>
+
+        <!-- RATING BINTANG INTERAKTIF -->
         <p class="rating-container">
-    Rating: 
-    <span class="bintang" data-value="1">★</span>
-    <span class="bintang" data-value="2">★</span>
-    <span class="bintang" data-value="3">★</span>
-    <span class="bintang" data-value="4">★</span>
-    <span class="bintang" data-value="5">★</span>
-    <span id="teks-rating" style="font-size: 14px; margin-left: 8px; color: #705849;">(5/5)</span>
-</p>
-        <!-- Bagian Tag Fasilitas-->
-        <h3>Fasilitas</h3>
-<div id="fasilitas-container">
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="5/5"> 
-        <span>AC</span>
-        <small class="badge-rate">5/5 ⭐</small>
-    </label>
+            Rating: 
+            <span class="bintang" data-value="1">★</span>
+            <span class="bintang" data-value="2">★</span>
+            <span class="bintang" data-value="3">★</span>
+            <span class="bintang" data-value="4">★</span>
+            <span class="bintang" data-value="5">★</span>
+            <span id="teks-rating" style="font-size: 14px; margin-left: 8px; color: #705849;">(5/5)</span>
+        </p>
 
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="4/5"> 
-        <span>Makan berat</span>
-        <small class="badge-rate">4/5 ⭐</small>
-    </label>
-
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="5/5"> 
-        <span>Makan ringan</span>
-        <small class="badge-rate">5/5 ⭐</small>
-    </label>
-
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="4.5/5"> 
-        <span>Porsi besar</span>
-        <small class="badge-rate">4.5/5 ⭐</small>
-    </label>
-
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="3/5"> 
-        <span>Lesehan</span>
-        <small class="badge-rate">3/5 ⭐</small>
-    </label>
-
-    <label class="tag-fasilitas">
-        <input type="checkbox" checked data-rate="5/5"> 
-        <span>Meja kursi</span>
-        <small class="badge-rate">5/5 ⭐</small>
-    </label>
-
-    <label class="tag-fasilitas">
-        <input type="checkbox"> 
-        <span>Outdoor</span>
-        <small class="badge-rate">-</small>
-    </label>
-</div>
-
-         <!-- Bagian Input Ulasan -->
-          <h3>Ulasan:</h3>
-          <textarea id="input-ulasan" placeholder="Tulis review-nya di sini..."></textarea>
-          <!-- Tambahkan baris di bawah ini: -->
-           <p id="info-karakter" style="font-size: 14px; color: #a08a7d; text-align: right; margin-top: 5px;">0 karakter</p>
-
-          <!-- Informasi Tambahan -->
-           <h3>Informasi:</h3>
-           <div class="info-container">
+        <!-- INFORMASI HARGA & JAM BUKA -->
+        <h3>Informasi:</h3>
+        <div class="info-container">
             <div class="info-item">
                 <span class="info-label">Harga</span>
                 <span class="info-value">500-3000</span>
             </div>
             <div class="info-item">
-                 <span class="info-label">Jam Buka</span>
-                 <span class="info-value">06.00-11.00 & 18.00-11.00</span>
-                 </div>
-                </div>
-      </main>
+                <span class="info-label">Jam Buka</span>
+                <span class="info-value">06.00-11.00 & 18.00-11.00</span>
+            </div>
+        </div>
 
-      <!-- Navigasi Bawah -->
-       <footer>
-        <hr>
-        <button>Beranda</button>
-        <button>Notes</button>
-       </footer>
- <script src="script.js"></script>
+        <!-- FASILITAS -->
+        <h3>Fasilitas</h3>
+        <div id="fasilitas-container">
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="5/5"> 
+                <span>AC</span>
+                <small class="badge-rate">5/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="4/5"> 
+                <span>Makan berat</span>
+                <small class="badge-rate">4/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="5/5"> 
+                <span>Makan ringan</span>
+                <small class="badge-rate">5/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="4.5/5"> 
+                <span>Porsi besar</span>
+                <small class="badge-rate">4.5/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="3/5"> 
+                <span>Lesehan</span>
+                <small class="badge-rate">3/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox" checked data-rate="5/5"> 
+                <span>Meja kursi</span>
+                <small class="badge-rate">5/5 ⭐</small>
+            </label>
+            <label class="tag-fasilitas">
+                <input type="checkbox"> 
+                <span>Outdoor</span>
+                <small class="badge-rate">-</small>
+            </label>
+        </div>
+
+        <!-- ULASAN CATATAN BUKU -->
+        <h3>Catatan Ulasan:</h3>
+        <textarea id="input-ulasan" placeholder="Tulis review-nya di sini..."></textarea>
+        <p id="info-karakter" style="font-size: 14px; color: #a08a7d; text-align: right; margin-top: 5px;">0 karakter</p>
+
+        <!-- FOOTER CATATAN JURNAL -->
+        <footer style="margin-top: 30px; text-align: center; color: #888888; font-size: 12px; border-top: 1px dashed #d1b8a5; padding-top: 15px;">
+            <p>Dibuat dengan ❤️ untuk Jurnal Kuliner Warung</p>
+        </footer>
+
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>

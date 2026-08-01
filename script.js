@@ -64,3 +64,25 @@ daftarFasilitas.forEach(checkbox => {
         }
     });
 });
+
+// FITUR berpindah halaman (NAVIGASI)
+const halamanBeranda = document.getElementById('halaman-beranda');
+const halamanDetail = document.getElementById('halaman-detail');
+
+function bukaDetail(namaWarung) {
+    // Sembunyikan beranda, tampilkan halaman detail
+    halamanBeranda.style.display = 'none';
+    halamanDetail.style.display = 'block';
+
+    // Ubah judul di halaman jurnal sesuai kartu yang diklik
+    const judulDetail = document.getElementById('detail-nama-warung');
+    if (judulDetail) {
+        judulDetail.textContent = namaWarung;
+    }
+}
+
+function kembaliKeBeranda() {
+    // Sembunyikan halaman detail, tampilkan kembali beranda
+    halamanDetail.style.display = 'none';
+    halamanBeranda.style.display = 'block';
+}
