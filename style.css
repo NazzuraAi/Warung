@@ -1,0 +1,250 @@
+/* Import font bergaya tulisan tangan dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Patrick+Hand&display=swap');
+
+/* Style untuk seluruh latar belakang halaman */
+body {
+    background-color: #f7e2d6; /* Warna pastel krem lembut */
+    font-family: 'Patrick Hand', cursive; /* Font gaya tulisan tangan */
+    color: #4a3b32; /* Warna teks cokelat tua, lebih lembut dari hitam */
+    padding: 20px;
+    max-width: 450px; /* Membuat ukuran kartu terasa seperti layar HP */
+    margin: 0 auto; /* Posisi di tengah layar */
+}
+
+/* Kotak Pembungkus Utama (Efek Scrapbook) */
+main {
+    background-color: #fff9f3;
+    border: 3px solid #3d2b1f; /* Garis tepi tebal cokelat */
+    border-radius: 18px; /* Sudut melengkung */
+    padding: 20px;
+    box-shadow: 4px 4px 0px #3d2b1f; /* Efek bayangan tegas ala ilustrasi */
+}
+
+/* Judul Header */
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    margin-bottom: 0;
+}
+
+/* Styling Tag/Tombol Fasilitas */
+label {
+    display: inline-block;
+    background-color: #f2c9a1; /* Warna oranye pastel */
+    border: 2px solid #3d2b1f;
+    border-radius: 15px;
+    padding: 5px 12px;
+    margin: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styling Kotak Input Ulasan */
+textarea {
+    width: 90%;
+    height: 125px; /* Disesuaikan agar muat sekitar 5 baris */
+    border: 2px solid #3d2b1f;
+    border-radius: 10px;
+    
+    /* PADDING PENTING: Menyesuaikan posisi awal ketikan agar pas di atas garis pertama */
+    padding: 2px 10px 0px 10px; 
+    
+    font-family: 'Patrick Hand', cursive;
+    font-size: 18px; /* Ukuran font disesuaikan */
+    color: #4a3b32;
+    
+    /* EFEK GARIS BUKU CATATAN (Tinggi garis 25px) */
+    background: repeating-linear-gradient(
+        #fff9f3,
+        #fff9f3 24px,
+        #d1b8a5 25px
+    );
+    
+    /* LINE-HEIGHT PENTING: Harus sama persis dengan tinggi repeating-linear-gradient (25px) */
+    line-height: 25px; 
+    
+    outline: none;
+    resize: vertical; /* Memungkinkan kotak ditarik ke bawah jika kurang panjang */
+    transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    box-shadow: 0 0 8px rgba(224, 122, 95, 0.5);
+    border-color: #e07a5f;
+}
+
+/* Navigasi Bawah (Bottom Bar) */
+footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: #fff9f3;
+    border: 3px solid #3d2b1f;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+footer button {
+    background: none;
+    border: none;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* BINGKAI FOTO POLAROID */
+.foto-container {
+    background-color: #ffffff;
+    padding: 10px 10px 25px 10px;
+    border: 2px solid #3d2b1f;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px #3d2b1f;
+    margin: 15px 0;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease; /* Transisi untuk efek miring/membesar */
+}
+
+.foto-warung {
+    width: 100%; /* Lebar gambar pas dengan bingkai */
+    height: auto; /* Tinggi gambar menyesuaikan otomatis agar foto UTUH */
+    max-height: 250px; /* Batas tinggi maksimal agar tidak terlalu panjang */
+    object-fit: contain; /* Menampilkan seluruh gambar tanpa terpotong */
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #3d2b1f;
+    background-color: #f7e2d6; /* Warna latar jika rasio foto berbeda */
+    transition: transform 0.3s ease;
+}
+
+/* EFEK SAAT KURSOR DIARAHKAN (HOVER) */
+.foto-container:hover {
+    transform: rotate(0deg) scale(1.03); /* Bingkai jadi lurus & membesar sedikit */
+    box-shadow: 5px 5px 0px #3d2b1f;
+}
+
+
+/* 2. EFEK TAG FASILITAS INTERAKTIF */
+/* Warna default jika BELUM dicentang */
+label {
+    background-color: #fceee3; 
+    color: #a08a7d;
+    transition: all 0.2s ease; /* Transisi halus saat berubah warna */
+}
+
+/* Warna jika SUDAH dicentang (checked) */
+label:has(input:checked) {
+    background-color: #f2c9a1; /* Oranye pastel */
+    color: #4a3b32;
+    font-weight: bold;
+}
+
+/* Efek saat kursor menyorot tag (Hover) */
+label:hover {
+    transform: translateY(-2deg); /* NAIK Sedikit saat disorot */
+    box-shadow: 2px 2px 0px #3d2b1f;
+}
+
+/* 3. EFEK TOMBOL DI FOOTER SAAT DIKLIK */
+footer button {
+    transition: transform 0.1s;
+}
+
+footer button:hover {
+    color: #e07a5f;
+    transform: scale(1.1); /* Membesar sedikit */
+}
+
+footer button:active {
+    transform: scale(0.95); /* Memengecil sedikit saat diklik */
+}
+
+/* 1. STYLING RATING BINTANG */
+.rating-container {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Warna bintang default (mati / belum dipilih) */
+.bintang {
+    font-size: 24px;
+    color: #d1b8a5; /* Warna krem redup */
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Warna bintang AKTIF (yang terpilih) */
+.bintang.aktif {
+    color: #e07a5f; /* Warna oranye-kuning terang */
+}
+
+.bintang:hover {
+    transform: scale(1.2);
+}
+
+/* 2. STYLING INFORMASI KARTU (DUA KOLOM RAPI) */
+.info-container {
+    background-color: #fceee3;
+    border: 2px solid #3d2b1f;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between; /* Kiri-kanan sejajar */
+    padding: 6px 0;
+    border-bottom: 1px dashed #d1b8a5; /* Garis putus-putus pembatas */
+}
+
+.info-item:last-child {
+    border-bottom: none; /* Hilangkan garis di baris paling bawah */
+}
+
+.info-label {
+    font-weight: bold;
+    color: #705849;
+}
+
+.info-value {
+    color: #3d2b1f;
+}
+/* Container Tag Fasilitas */
+.tag-fasilitas {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #fceee3;
+    border: 2px solid #3d2b1f;
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Badge Kecil Rating di Dalam Tag */
+.badge-rate {
+    background-color: #e07a5f;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: none; /* Default sembunyi jika tidak dicentang */
+}
+
+/* Saat Checkbox Dicentang (Active State) */
+.tag-fasilitas:has(input:checked) {
+    background-color: #f2c9a1;
+    color: #4a3b32;
+    font-weight: bold;
+}
+
+/* Tampilkan Badge Rating Hanya Jika Dicentang */
+.tag-fasilitas:has(input:checked) .badge-rate {
+    display: inline-block;
+}
